@@ -5,6 +5,7 @@ class App.Views.ShowNote extends Backbone.View
 
   events:
     'change': 'save'
+    'keydown .note-title': 'blurIfEnter'
 
   render: ->
     @$el.html(@template(note: @model))
@@ -20,3 +21,7 @@ class App.Views.ShowNote extends Backbone.View
       content: @$('.note-content').val()
     @model.save()
     false
+
+  blurIfEnter: (e) ->
+    if e.keyCode == 13
+      @$(':input').blur()
