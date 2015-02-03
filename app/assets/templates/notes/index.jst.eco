@@ -1,2 +1,7 @@
 <ul class="notes">
 </ul>
+<div class="add-actions">
+  <p>
+    <button class="add-note">Add Note</button>
+  </p>
+</div>
