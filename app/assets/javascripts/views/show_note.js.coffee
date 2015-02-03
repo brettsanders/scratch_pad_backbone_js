@@ -4,7 +4,7 @@ class App.Views.ShowNote extends Backbone.View
   className: 'note'
 
   events:
-    'click .edit-note': 'showNote'
+    'change': 'save'
 
   render: ->
     @$el.html(@template(note: @model))
@@ -12,4 +12,11 @@ class App.Views.ShowNote extends Backbone.View
 
   showNote: ->
     Backbone.history.navigate(@model.url(), trigger: true)
+    false
+
+  save: ->
+    @model.set
+      title: @$('.note-title').val()
+      content: @$('.note-content').val()
+    @model.save()
     false
