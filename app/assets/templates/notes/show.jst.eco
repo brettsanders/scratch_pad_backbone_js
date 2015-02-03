@@ -4,3 +4,6 @@
 <div class="body">
   <textarea class="note-content"><%= @note.get("content") %></textarea>
 </div>
+<div class="footer">
+  <button class="save">Save</button>
+</div>

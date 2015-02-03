@@ -33,12 +33,23 @@
 
   .body {
     width: 100%;
-    height: 100%;
+    height: 165px;
 
     .note-content {
       width: 100%;
-      height: 165px;
+      height: 100%;
       resize: none;
+    }
+  }
+
+  .footer {
+    display: none;
+  }
+
+  &.editing {
+    border-color: blue;
+    .footer {
+      display: block;
     }
   }
 }
