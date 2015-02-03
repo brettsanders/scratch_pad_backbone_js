@@ -1,15 +1,11 @@
 class App.Views.Notes extends Backbone.View
   template: JST['notes/index']
 
-  events:
-    'click a': 'showNote'
-
   render: ->
     @$el.html(@template(notes: @collection))
+    @collection.forEach(@renderNote)
     this
 
-  showNote: (e) ->
-    $this = $(e.currentTarget)
-    url = $this.attr("href")
-    Backbone.history.navigate(url, trigger: true)
-    false
+  renderNote: (note) =>
+    view = new App.Views.ShowNote(model: note, tagName: 'li')
+    @$('.notes').append(view.render().el)
