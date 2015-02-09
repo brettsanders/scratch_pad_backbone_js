@@ -5,6 +5,7 @@ class App.Views.ShowNote extends Backbone.View
 
   initialize: ->
     @listenTo(@model, "invalid", @addError)
+    @listenTo(@model, "error", @addError)
 
   events:
     'change': 'save'
