@@ -3,6 +3,9 @@ class App.Views.ShowNote extends Backbone.View
 
   className: 'note'
 
+  initialize: ->
+    @listenTo(@model, "invalid", @addError)
+
   events:
     'change': 'save'
     'keydown .note-title': 'blurIfEnter'
@@ -31,9 +34,13 @@ class App.Views.ShowNote extends Backbone.View
 
   beginEditing: ->
     @$el.addClass('editing')
+    @$el.removeClass("error")
 
   endEditing: ->
     @$el.removeClass('editing')
+
+  addError: =>
+    @$el.addClass("error")
 
   destroyNote: ->
     @model.destroy()
