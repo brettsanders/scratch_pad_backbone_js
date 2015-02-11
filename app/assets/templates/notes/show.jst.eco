@@ -5,9 +5,7 @@
   <textarea class="note-content" placeholder="Content..."><%= @note.get("content") %></textarea>
 </div>
 
-<div class="normal-footer">
-  <%= @note.get("updated_at") %>
-</div>
+<div class="normal-footer"></div>
 
 <div class="editing-footer">
   <button class="save">Save</button>
