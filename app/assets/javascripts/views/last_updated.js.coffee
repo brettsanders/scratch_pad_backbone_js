@@ -1,4 +1,9 @@
 class App.Views.LastUpdated extends Backbone.View
-  render: ->
-    @$el.html(@model.get("updated_at"))
+  initialize: ->
+    @listenTo(@model, 'change:updated_at', @render)
+
+  render: =>
+    @$el.html(@lastUpdated())
     this
+
+  lastUpdated: -> moment(@model.get("updated_at")).calendar()
